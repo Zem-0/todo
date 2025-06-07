@@ -9,7 +9,7 @@ function Dashboard() {
   const [newMeeting, setNewMeeting] = useState({ agenda: '', date: '', time: '', url: '' });
 
   useEffect(() => {
-    fetch('https://web-production-23d9.up.railway.app/api/meetings/')
+    fetch('https://fast-api-bqid.onrender.com/meetings/')
       .then(response => response.json())
       .then(data => {
         const meetingsWithStatus = data.map(meeting => ({ ...meeting, status: 'Upcoming' }));
@@ -19,7 +19,7 @@ function Dashboard() {
   }, []);
 
   const handleAddMeeting = () => {
-    fetch('https://web-production-23d9.up.railway.app/api/meetings/', {
+    fetch('https://fast-api-bqid.onrender.com/meetings/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ function Dashboard() {
   };
 
   const handleDeleteMeeting = (id) => {
-    fetch(`https://web-production-23d9.up.railway.app/api/meetings/${id}/`, {
+    fetch(`https://fast-api-bqid.onrender.com/meetings/${id}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -55,7 +55,7 @@ function Dashboard() {
   };
 
   const handleUpdateMeeting = (id, updatedFields) => {
-    fetch(`https://web-production-23d9.up.railway.app/api/meetings/${id}/`, {
+    fetch(`https://fast-api-bqid.onrender.com/meetings/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
